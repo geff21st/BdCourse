@@ -2,11 +2,22 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="act_btns">
-    <asp:Button ID="addb" runat="server" style="float: left" Text="Редактирование" OnClick="addb_Click" />
-    <div class="delete_panel">
-        <asp:Button ID="del_btn" runat="server" Text="Удалить" OnClick="del_btn_Click" />
-        <asp:TextBox ID="del_tb" runat="server"></asp:TextBox>
-    </div>
+        <asp:Button ID="addb" runat="server" style="float: left" Text="Редактирование" OnClick="addb_Click" />
+        <div class="controls_group">
+            <asp:Button ID="del_btn" runat="server" Text="Удалить" OnClick="del_btn_Click" />
+            <asp:TextBox ID="del_tb" runat="server"></asp:TextBox>
+        </div>
+        <div class="controls_group">
+            <asp:Button ID="sortby_btn" runat="server" Text="Сортировать" OnClick="sortby_btn_Click" />
+            <asp:DropDownList ID="sortby_ddl" runat="server">
+                <asp:ListItem>#</asp:ListItem>
+                <asp:ListItem>Название</asp:ListItem>
+                <asp:ListItem>Дата</asp:ListItem>
+                <asp:ListItem>Номер зала</asp:ListItem>
+                <asp:ListItem>Состоявшееся</asp:ListItem>
+            </asp:DropDownList>
+        </div>
+        <asp:Button ID="future_btn" runat="server" style="float: left" Text="Будущие события" OnClick="future_btn_Click" />
     </div>
     <asp:Panel ID="Panel1" runat="server" 
         CssClass="add_panel"
@@ -28,6 +39,9 @@
                     <asp:TextBox ID="date_tb" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RFV2" runat="server" 
                         ControlToValidate="date_tb" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="REV1" runat="server" 
+                        ControlToValidate="date_tb" ErrorMessage="Неверный формат" ForeColor="Red" 
+                        ValidationExpression="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"></asp:RegularExpressionValidator>
                 </td>
             </tr>
 
@@ -43,9 +57,12 @@
             <tr>
                 <td>Состоявшееся</td>
                 <td>
-                    <asp:TextBox ID="done_tb" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                        ControlToValidate="done_tb" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="done_ddl" runat="server">
+                        <asp:ListItem>Нет</asp:ListItem>
+                        <asp:ListItem>Да</asp:ListItem>
+                    </asp:DropDownList>
+                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="done_tb" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                 </td>
             </tr>
 
@@ -53,7 +70,7 @@
                 <td colspan = "2">
                     <asp:Button ID="addbut" runat="server" style="float: left" Text="Добавить" OnClick="addbut_Click"/>
 
-                    <div class="delete_panel">
+                    <div class="controls_group">
                         <asp:Button ID="upd_btn" runat="server" Text="Обновить" OnClick="upd_btn_Click" />
                         <asp:TextBox ID="upd_tb" runat="server"></asp:TextBox>
                     </div>

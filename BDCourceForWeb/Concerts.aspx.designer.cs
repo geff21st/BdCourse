@@ -40,6 +40,33 @@ namespace BDCourceForWeb {
         protected global::System.Web.UI.WebControls.TextBox del_tb;
         
         /// <summary>
+        /// sortby_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button sortby_btn;
+        
+        /// <summary>
+        /// sortby_ddl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList sortby_ddl;
+        
+        /// <summary>
+        /// future_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button future_btn;
+        
+        /// <summary>
         /// Panel1 control.
         /// </summary>
         /// <remarks>
@@ -85,6 +112,15 @@ namespace BDCourceForWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV2;
         
         /// <summary>
+        /// REV1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator REV1;
+        
+        /// <summary>
         /// room_tb control.
         /// </summary>
         /// <remarks>
@@ -103,22 +139,13 @@ namespace BDCourceForWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV3;
         
         /// <summary>
-        /// done_tb control.
+        /// done_ddl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox done_tb;
-        
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.DropDownList done_ddl;
         
         /// <summary>
         /// addbut control.

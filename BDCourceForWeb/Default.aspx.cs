@@ -22,12 +22,16 @@ namespace BDCourceForWeb
 
         protected void ClearFields()
         {
-            type_tb.Text = "";
-            program_tb.Text = "";
-            artist_tb.Text = "";
+            //type_tb.Text = "";
+            //program_tb.Text = "";
+            //artist_tb.Text = "";
             name_tb.Text = "";
             upd_tb.Text = "";
             del_tb.Text = "";
+
+            program_ddl.ClearSelection();
+            artist_ddl.ClearSelection();
+            type_ddl.ClearSelection();
         }
 
         protected void cancelbut_Click(object sender, EventArgs e)
@@ -44,9 +48,9 @@ namespace BDCourceForWeb
                 SqlDataSource1.InsertCommandType = SqlDataSourceCommandType.Text;
                 SqlDataSource1.InsertCommand = String.Format("INSERT INTO [Концертный номер] ([ТипНомера], [Программа], [Коллектив],  [Название]) " +
                                                              "VALUES ('{0}', '{1}', '{2}', '{3}')",
-                        type_tb.Text, 
-                        program_tb.Text, 
-                        artist_tb.Text,
+                        type_ddl.SelectedValue, 
+                        program_ddl.SelectedValue, 
+                        artist_ddl.SelectedValue,
                         name_tb.Text
                     );
                 SqlDataSource1.Insert();
@@ -76,9 +80,9 @@ namespace BDCourceForWeb
             {
                 SqlDataSource1.UpdateCommandType = SqlDataSourceCommandType.Text;
                 SqlDataSource1.UpdateCommand = String.Format("UPDATE  [Концертный номер] SET [ТипНомера]='{0}', [Программа]='{1}', [Коллектив]='{2}', [Название]='{3}' WHERE [КодНомера]={4}", 
-                        type_tb.Text,
-                        program_tb.Text,
-                        artist_tb.Text,
+                        type_ddl.SelectedValue,
+                        program_ddl.SelectedValue,
+                        artist_ddl.SelectedValue,
                         name_tb.Text,
                         upd_tb.Text
                     );
@@ -88,6 +92,51 @@ namespace BDCourceForWeb
                 Panel1.Visible = false;
             }
             catch (Exception) {}
+        }
+
+        private string select_cmd =
+            "SELECT [Концертный номер].КодНомера, [Концертная программа].Название, [Концертный номер].Название, [Творческий коллектив].Название, [Типы номеров].[Тип номера] FROM [Типы номеров] " +
+            "INNER JOIN ([Творческий коллектив] INNER JOIN ([Концертная программа] INNER JOIN [Концертный номер] " +
+            "ON [Концертная программа].КодПрограммы = [Концертный номер].Программа) ON [Творческий коллектив].КодКоллектива = [Концертный номер].Коллектив) ON [Типы номеров].КодТипа = [Концертный номер].ТипНомера ";
+
+        protected void vocal_Click(object sender, EventArgs e)
+        {
+            if (vocal_btn.Text == "Все номера")
+            {
+                vocal_btn.Text = "Вокальные номера";
+                SqlDataSource1.SelectCommand = select_cmd;
+            }
+            else
+            {
+                vocal_btn.Text = "Все номера";
+                SqlDataSource1.SelectCommand = select_cmd + " WHERE ((([Типы номеров].[Тип номера])='Вокал'))";
+            }
+
+            SqlDataSource1.DataBind();
+            GridView1.DataBind();
+        }
+
+        protected void filter_btn_Click(object sender, EventArgs e)
+        {
+            SqlDataSource1.SelectCommand = select_cmd + " WHERE ((([Концертный номер].[Коллектив])=" + filter_ddl.SelectedValue + "))";
+
+            SqlDataSource1.DataBind();
+            GridView1.DataBind();
+        }
+
+        protected void sortby_btn_Click(object sender, EventArgs e)
+        {
+            switch (sortby_ddl.SelectedIndex)
+            {
+                case 0: SqlDataSource1.SelectCommand = select_cmd + " ORDER BY [Концертный номер].КодНомера"; break;
+                case 1: SqlDataSource1.SelectCommand = select_cmd + " ORDER BY [Концертный номер].Название"; break;
+                case 2: SqlDataSource1.SelectCommand = select_cmd + " ORDER BY [Творческий коллектив].[Название]"; break;
+                case 3: SqlDataSource1.SelectCommand = select_cmd + " ORDER BY [Концертная программа].Название"; break;
+                case 4: SqlDataSource1.SelectCommand = select_cmd + " ORDER BY [Типы номеров].[Тип номера]"; break;
+            }
+
+            SqlDataSource1.DataBind();
+            GridView1.DataBind();
         }
     }
 }

@@ -52,28 +52,38 @@ input[type="select"] {
 
 .add_panel {
       z-index: 10000;
-    clear: both;
+      clear: both;
       border-radius: 4px;
       border-width: 8px;
       border-style: solid;
       border-color: #CDCDCD;
       background-color: #CDCDCD;
       /* height: 238px; */
-      width: 530px;
+      width: 524px;
       /* white-space: nowrap; */
       margin: 20px auto;
       padding-top: 10px;
+}
+.add_panel td {
+    min-width: 200px;
+    padding-left: 13px;
 }
 .add_panel input {
     max-width: 360px;
     width: 96% !important;    
 }
-input[type="text"] {
+select {
+    height: 30px;
+    max-width: 360px;
+    width: 96% !important;
+    padding: 0 8px;
+}
+select, input[type="text"] {
     max-width: 280px;
     border: 0;
     background: #F5F5F5;
     border-radius: 2px;
-    border: 1px solid #BBB;  
+    border: 1px solid #999B9D;  
     text-align: center;
     border-radius: 4px;
 }
@@ -86,7 +96,7 @@ input[type="submit"] {
     border-radius: 4px;
     border: 0;
     border-bottom: 2px solid rgb(99, 116, 128);
-    margin: 10px 4px;
+    margin: 10px 2px;
 }
 .add_panel table {
     line-height: 25px;
@@ -98,13 +108,25 @@ input[type="submit"] {
     margin: auto;
 }
 
-.delete_panel {
+.controls_group {
     float: left;
-    margin-right: 4px;
+    margin-right: 6px;
     margin-left: 4px;
 }
-.delete_panel input[type="text"] {
-    background-color: #E4E4E4;
+.controls_group select {
+    background-color: #F5F5F5;
+    height: 40px;
+    width: 110px !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    margin-left: -2px !important;
+    border-bottom-width: 2px;
+    border-color: #999B9D;
+    position: relative;
+    top: 1px;
+}
+.controls_group input[type="text"]{
+    background-color: #F5F5F5;
     height: 40px;
     width: 40px !important;
     border-top-left-radius: 0;
@@ -113,13 +135,13 @@ input[type="submit"] {
     border-bottom-width: 2px;
     border-color: #999B9D;
 }
-.add_panel .delete_panel input[type="text"] {
+.add_panel .controls_group input[type="text"] {
     position: relative;
     top: 1px;
 }
-.delete_panel input[type="submit"]{
+.controls_group input[type="submit"]{
     border-radius: 4px;
-    width: 110px !important;
+    width: 100px !important;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     margin-right: -2px !important;
@@ -127,6 +149,18 @@ input[type="submit"] {
 
 .act_btns {
     /*margin: 10px -17px;*/
-    margin-bottom: 73px;
-
+    /*margin-bottom: 20px;*/
+    height: 70px;
+}
+.act_btns select {
+    margin: 10px 2px;
+    height: 40px;
+    width: 170px !important;
+    background-color: #F5F5F5;
+    /* text-align: center; */
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid;
+    border-bottom-width: 2px;
+    border-color: #B5B5B5;
 }

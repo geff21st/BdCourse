@@ -19,7 +19,8 @@ namespace BDCourceForWeb
             name_tb.Text = "";
             date_tb.Text = "";
             room_tb.Text = "";
-            done_tb.Text = "";
+            
+            done_ddl.ClearSelection();
 
             upd_tb.Text = "";
             del_tb.Text = "";
@@ -57,7 +58,7 @@ namespace BDCourceForWeb
                         name_tb.Text,
                         date_tb.Text,
                         room_tb.Text,
-                        done_tb.Text
+                        done_ddl.SelectedIndex
                     );
                 SqlDataSource1.Insert();
                 Panel1.Visible = false;
@@ -79,7 +80,7 @@ namespace BDCourceForWeb
                         name_tb.Text,
                         date_tb.Text,
                         room_tb.Text,
-                        done_tb.Text,
+                        done_ddl.SelectedIndex,
                         upd_tb.Text
                     );
                 SqlDataSource1.Update();
@@ -90,9 +91,43 @@ namespace BDCourceForWeb
             catch (Exception) { }
         }
 
+        private string select_cmd = "SELECT * FROM [Концертная программа]";
+
+        protected void future_btn_Click(object sender, EventArgs e)
+        {
+            if (future_btn.Text == "Все события")
+            {
+                future_btn.Text = "Будущие события";
+                SqlDataSource1.SelectCommand = select_cmd;
+            }
+            else
+            {
+                future_btn.Text = "Все события";
+                SqlDataSource1.SelectCommand = select_cmd + " WHERE ((([Концертная программа].Состоявшееся)=False))";
+            }
+
+            SqlDataSource1.DataBind();
+            GridView1.DataBind();
+        }
+
         protected void cancelbut_Click(object sender, EventArgs e)
         {
             Panel1.Visible = false;
+        }
+
+        protected void sortby_btn_Click(object sender, EventArgs e)
+        {
+            switch (sortby_ddl.SelectedIndex)
+            {
+                case 0: SqlDataSource1.SelectCommand = select_cmd + " ORDER BY [Концертная программа].КодПрограммы"; break;
+                case 1: SqlDataSource1.SelectCommand = select_cmd + " ORDER BY [Концертная программа].Название"; break;
+                case 2: SqlDataSource1.SelectCommand = select_cmd + " ORDER BY [Концертная программа].Дата"; break;
+                case 3: SqlDataSource1.SelectCommand = select_cmd + " ORDER BY [Концертная программа].НомерЗала"; break;
+                case 4: SqlDataSource1.SelectCommand = select_cmd + " ORDER BY [Концертная программа].Состоявшееся"; break;
+            }
+
+            SqlDataSource1.DataBind();
+            GridView1.DataBind();
         }
     }
 }

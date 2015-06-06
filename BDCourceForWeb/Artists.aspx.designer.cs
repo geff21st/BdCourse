@@ -40,6 +40,24 @@ namespace BDCourceForWeb {
         protected global::System.Web.UI.WebControls.TextBox del_tb;
         
         /// <summary>
+        /// sortby_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button sortby_btn;
+        
+        /// <summary>
+        /// sortby_ddl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList sortby_ddl;
+        
+        /// <summary>
         /// Panel1 control.
         /// </summary>
         /// <remarks>
@@ -67,13 +85,13 @@ namespace BDCourceForWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV1;
         
         /// <summary>
-        /// date_tb control.
+        /// city_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox date_tb;
+        protected global::System.Web.UI.WebControls.TextBox city_tb;
         
         /// <summary>
         /// RFV2 control.
@@ -85,13 +103,13 @@ namespace BDCourceForWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV2;
         
         /// <summary>
-        /// room_tb control.
+        /// date_tb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox room_tb;
+        protected global::System.Web.UI.WebControls.TextBox date_tb;
         
         /// <summary>
         /// RFV3 control.
@@ -103,22 +121,13 @@ namespace BDCourceForWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV3;
         
         /// <summary>
-        /// done_tb control.
+        /// REV1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox done_tb;
-        
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator REV1;
         
         /// <summary>
         /// addbut control.

@@ -2,11 +2,27 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="act_btns">
-    <asp:Button ID="addb" runat="server" style="float: left" Text="Редактирование" OnClick="addb_Click" />
-    <div class="delete_panel">
-        <asp:Button ID="del_btn" runat="server" Text="Удалить" OnClick="del_btn_Click" />
-        <asp:TextBox ID="del_tb" runat="server"></asp:TextBox>
-    </div>
+        <asp:Button ID="addb" runat="server" style="float: left" Text="Редактирование" OnClick="addb_Click" />
+        <div class="controls_group">
+            <asp:Button ID="del_btn" runat="server" Text="Удалить" OnClick="del_btn_Click" />
+            <asp:TextBox ID="del_tb" runat="server" />
+        </div>
+        <div class="controls_group">
+            <asp:Button ID="filter_btn" runat="server" Text="Выбрать" OnClick="filter_btn_Click" />
+            <asp:DropDownList ID="filter_ddl" runat="server" DataSourceID="SqlDataSource5" DataTextField="Название" DataValueField="КодКоллектива" />
+        </div>
+        <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [Название], [КодКоллектива] FROM [Творческий коллектив]" />
+        <div class="controls_group">
+            <asp:Button ID="sortby_btn" runat="server" Text="Сортировать" OnClick="sortby_btn_Click" />
+            <asp:DropDownList ID="sortby_ddl" runat="server">
+                <asp:ListItem>#</asp:ListItem>
+                <asp:ListItem>Название</asp:ListItem>
+                <asp:ListItem>Коллектив</asp:ListItem>
+                <asp:ListItem>Программа</asp:ListItem>
+                <asp:ListItem>Тип номера</asp:ListItem>
+            </asp:DropDownList>
+        </div>
+        <asp:Button ID="vocal_btn" runat="server" style="float: left" Text="Вокальные номера" OnClick="vocal_Click" />
     </div>
     <asp:Panel ID="Panel1" runat="server" 
         CssClass="add_panel"
@@ -15,37 +31,33 @@
             <tr>
                 <td>Программа</td>
                 <td>
-                    <asp:TextBox ID="program_tb" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RFV1" runat="server" 
-                        ControlToValidate="program_tb" ErrorMessage="*" ForeColor="Red" 
-                        EnableTheming="True"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="program_ddl" runat="server" DataSourceID="SqlDataSource2" DataTextField="Название" DataValueField="КодПрограммы"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [Название], [КодПрограммы] FROM [Концертная программа]" />
                 </td>
             </tr>
 
             <tr>
                 <td>Название номера</td>
                 <td>
-                    <asp:TextBox ID="name_tb" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="name_tb" runat="server" />
                     <asp:RequiredFieldValidator ID="RFV2" runat="server" 
-                        ControlToValidate="name_tb" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        ControlToValidate="name_tb" ErrorMessage="*" ForeColor="Red" />
                 </td>
             </tr>
 
             <tr>
                 <td>Исполнитель</td>
                 <td>
-                    <asp:TextBox ID="artist_tb" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RFV3" runat="server" 
-                        ControlToValidate="artist_tb" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="artist_ddl" runat="server" DataSourceID="SqlDataSource3" DataTextField="Название" DataValueField="КодКоллектива" />
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [Название], [КодКоллектива] FROM [Творческий коллектив]" />
                 </td>
             </tr>
 
             <tr>
                 <td>Тип номера</td>
                 <td>
-                    <asp:TextBox ID="type_tb" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                        ControlToValidate="type_tb" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="type_ddl" runat="server" DataSourceID="SqlDataSource4" DataTextField="Тип номера" DataValueField="КодТипа" />
+                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Типы номеров]" />
                 </td>
             </tr>
 
@@ -53,9 +65,9 @@
                 <td colspan = "2">
                     <asp:Button ID="addbut" runat="server" style="float: left" Text="Добавить" OnClick="addbut_Click"/>
 
-                    <div class="delete_panel">
+                    <div class="controls_group">
                         <asp:Button ID="upd_btn" runat="server" Text="Обновить" OnClick="upd_btn_Click" />
-                        <asp:TextBox ID="upd_tb" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="upd_tb" runat="server" />
                     </div>
                     
                     <asp:Button ID="cancelbut" runat="server" CausesValidation="False" 
@@ -72,9 +84,9 @@
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="КодНомера" HeaderText="#" InsertVisible="False" SortExpression="КодНомера" />
-                    <asp:BoundField DataField="Концертная программа.Название" HeaderText="Программа" SortExpression="Концертная программа.Название" />
-                    <asp:BoundField DataField="Концертный номер.Название" HeaderText="Название номера" SortExpression="Концертный номер.Название" />
                     <asp:BoundField DataField="Творческий коллектив.Название" HeaderText="Исполнитель" SortExpression="Творческий коллектив.Название" />
+                    <asp:BoundField DataField="Концертный номер.Название" HeaderText="Название номера" SortExpression="Концертный номер.Название" />
+                    <asp:BoundField DataField="Концертная программа.Название" HeaderText="Программа" SortExpression="Концертная программа.Название" />
                     <asp:BoundField DataField="Тип номера" HeaderText="Тип номера" SortExpression="Тип номера" />
                 </Columns>
                 <FooterStyle BackColor="#CCCC99" />
@@ -88,7 +100,7 @@
                 <SortedDescendingHeaderStyle BackColor="#575357" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [Концертный номер].КодНомера, [Концертная программа].Название, [Концертный номер].Название, [Творческий коллектив].Название, [Типы номеров].[Тип номера]
-FROM [Концертная программа] INNER JOIN ([Типы номеров] INNER JOIN ([Творческий коллектив] INNER JOIN [Концертный номер] ON [Творческий коллектив].КодКоллектива = [Концертный номер].Коллектив) ON [Типы номеров].КодТипа = [Концертный номер].ТипНомера) ON [Концертная программа].КодПрограммы = [Концертный номер].Программа"></asp:SqlDataSource>        
+FROM [Концертная программа] INNER JOIN ([Типы номеров] INNER JOIN ([Творческий коллектив] INNER JOIN [Концертный номер] ON [Творческий коллектив].КодКоллектива = [Концертный номер].Коллектив) ON [Типы номеров].КодТипа = [Концертный номер].ТипНомера) ON [Концертная программа].КодПрограммы = [Концертный номер].Программа" />        
         </div>
     </div>
     
