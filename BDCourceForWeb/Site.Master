@@ -31,7 +31,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Список номеров</a></li>
-                        <li><a runat="server" href="~/About">Концерты</a></li>
+                        <li><a runat="server" href="~/Concerts">Концерты</a></li>
                         <li><a runat="server" href="~/Contact">Исполнители</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">

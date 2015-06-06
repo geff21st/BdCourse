@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="BDCourceForWeb._Default" %>
+﻿<%@ Page Title="Список номеров" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="BDCourceForWeb._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="act_btns">
@@ -8,14 +8,12 @@
         <asp:TextBox ID="del_tb" runat="server"></asp:TextBox>
     </div>
     </div>
-
     <asp:Panel ID="Panel1" runat="server" 
         CssClass="add_panel"
         Visible="False" Wrap="False">
         <table>
             <tr>
-                <td>
-                    Программа</td>
+                <td>Программа</td>
                 <td>
                     <asp:TextBox ID="program_tb" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RFV1" runat="server" 
@@ -23,36 +21,34 @@
                         EnableTheming="True"></asp:RequiredFieldValidator>
                 </td>
             </tr>
+
             <tr>
-                <td>
-                    Название номера    
-                </td>
+                <td>Название номера</td>
                 <td>
                     <asp:TextBox ID="name_tb" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RFV2" runat="server" 
                         ControlToValidate="name_tb" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
+
             <tr>
-                <td>
-                    Исполнитель
-                </td>
+                <td>Исполнитель</td>
                 <td>
                     <asp:TextBox ID="artist_tb" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RFV3" runat="server" 
                         ControlToValidate="artist_tb" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
+
             <tr>
-                <td>
-                    Тип номера
-                </td>
+                <td>Тип номера</td>
                 <td>
                     <asp:TextBox ID="type_tb" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                         ControlToValidate="type_tb" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
+
             <tr>
                 <td colspan = "2">
                     <asp:Button ID="addbut" runat="server" style="float: left" Text="Добавить" OnClick="addbut_Click"/>

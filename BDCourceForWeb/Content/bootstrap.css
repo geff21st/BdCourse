@@ -4525,6 +4525,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-bottom: 2px solid #1F4E6F;
   height: 43px;
   bottom: 460px;
+  margin-left: -1px;
 }
 
 .navbar-inverse .navbar-brand {
