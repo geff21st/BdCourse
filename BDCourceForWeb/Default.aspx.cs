@@ -87,7 +87,7 @@ namespace BDCourceForWeb
                 ClearFields();
                 Panel1.Visible = false;
             }
-            catch (Exception) { }
+            catch (Exception) {}
         }
     }
 }

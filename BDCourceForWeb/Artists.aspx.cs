@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace BDCourceForWeb
 {
-    public partial class About : Page
+    public partial class Contact : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -65,7 +65,7 @@ namespace BDCourceForWeb
                 ClearFields();
                 GridView1.DataBind();
             }
-            catch (Exception) {}
+            catch (Exception) { }
         }
 
         protected void upd_btn_Click(object sender, EventArgs e)

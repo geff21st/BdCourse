@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Список концертов" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Concerts.aspx.cs" Inherits="BDCourceForWeb.About" %>
+﻿<%@ Page Title="Исполнители" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Artists.aspx.cs" Inherits="BDCourceForWeb.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="act_btns">
@@ -65,14 +65,13 @@
             </tr>
         </table>
     </asp:Panel>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="КодПрограммы" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="КодКоллектива" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="КодПрограммы" HeaderText="#" InsertVisible="False" ReadOnly="True" SortExpression="КодПрограммы" />
+            <asp:BoundField DataField="КодКоллектива" HeaderText="#" InsertVisible="False" ReadOnly="True" SortExpression="КодКоллектива" />
             <asp:BoundField DataField="Название" HeaderText="Название" SortExpression="Название" />
-            <asp:BoundField DataField="Дата" HeaderText="Дата" dataformatstring="{0:MM.dd.yyyy}" SortExpression="Дата" />
-            <asp:BoundField DataField="НомерЗала" HeaderText="Номер зала" SortExpression="НомерЗала" />
-            <asp:CheckBoxField DataField="Состоявшееся" HeaderText="Состоялось" SortExpression="Состоявшееся" />
+            <asp:BoundField DataField="Город" HeaderText="Город" SortExpression="Город" />
+            <asp:BoundField DataField="ДатаСоздания" dataformatstring="{0:MM.dd.yyyy}" HeaderText="Дата cоздания" SortExpression="ДатаСоздания" />
         </Columns>
             <FooterStyle BackColor="#CCCC99" />
             <HeaderStyle BackColor="#6894B3" Font-Bold="True" ForeColor="White" />
@@ -83,6 +82,6 @@
             <SortedAscendingHeaderStyle BackColor="#848384" />
             <SortedDescendingCellStyle BackColor="#EAEAD3" />
             <SortedDescendingHeaderStyle BackColor="#575357" />
-        </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Концертная программа]"></asp:SqlDataSource>
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Творческий коллектив]"></asp:SqlDataSource>
 </asp:Content>

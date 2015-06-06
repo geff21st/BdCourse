@@ -10,7 +10,7 @@
 namespace BDCourceForWeb {
     
     
-    public partial class About {
+    public partial class Contact {
         
         /// <summary>
         /// addb control.
