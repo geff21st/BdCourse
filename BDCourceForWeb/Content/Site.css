@@ -1,0 +1,118 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 70px;
+    padding-bottom: 100px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="select"] {
+    max-width: 280px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+    .body-content {
+        padding: 0;
+    }
+}
+
+.add_panel {
+      z-index: 10000;
+    clear: both;
+      border-radius: 4px;
+      border-width: 8px;
+      border-style: solid;
+      border-color: #CDCDCD;
+      background-color: #CDCDCD;
+      /* height: 238px; */
+      width: 530px;
+      /* white-space: nowrap; */
+      margin: 20px auto;
+      padding-top: 10px;
+}
+.add_panel input {
+    max-width: 360px;
+    width: 96% !important;    
+}
+input[type="text"] {
+    max-width: 280px;
+    border: 0;
+    background: #F5F5F5;
+    border-radius: 2px;
+    border: 1px solid #BBB;  
+    text-align: center;
+    border-radius: 4px;
+}
+input[type="submit"] {
+    width: 160px;
+    max-width: 160px;
+    height: 40px !important;
+    color: white;
+    background: rgb(122, 136, 145);
+    border-radius: 4px;
+    border: 0;
+    border-bottom: 2px solid rgb(99, 116, 128);
+    margin: 10px 4px;
+}
+.add_panel table {
+    line-height: 25px;
+    background-color: rgb(205, 205, 205);
+    text-align: left;
+    border-radius: 0;
+}
+.mytable {
+    margin: auto;
+}
+
+.delete_panel {
+    float: left;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+.delete_panel input[type="text"] {
+    background-color: #E4E4E4;
+    height: 40px;
+    width: 40px !important;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -2px !important;
+    border-bottom-width: 2px;
+    border-color: #999B9D;
+}
+.add_panel .delete_panel input[type="text"] {
+    position: relative;
+    top: 1px;
+}
+.delete_panel input[type="submit"]{
+    border-radius: 4px;
+    width: 110px !important;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: -2px !important;
+}
+
+.act_btns {
+    /*margin: 10px -17px;
+    margin-bottom: 50px;*/
+}
