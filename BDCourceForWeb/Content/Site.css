@@ -1,7 +1,7 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body {
     padding-top: 60px;
-    padding-bottom: 110px;
+    padding-bottom: 134px;
 }
 
 /* Wrapping element */
@@ -35,6 +35,19 @@ input[type="select"] {
     .body-content {
         padding: 0;
     }
+}
+
+.myfooter {
+      text-align: center;
+      color: rgb(144, 157, 157);
+      position: absolute;
+      padding-bottom: 20px;
+      padding-top: 30px;
+      background: #454C59;
+      box-shadow: inset 0 5px 10px -3px rgba(44, 53, 60, 1);
+      width: 100%;
+      right: 0;
+      bottom: 0;
 }
 
 .add_panel {

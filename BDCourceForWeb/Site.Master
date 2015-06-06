@@ -62,6 +62,7 @@
     
 </body>
     <footer class="myfooter">
-        <p>Александр Кузнецов &copy; <%: DateTime.Now.Year %> Используются технологии ASP.NET</p>
+        <p>Александр Кузнецов &copy; <%: DateTime.Now.Year %></p>
+        <p>Используются технологии ASP.NET</p>
     </footer>
 </html>
