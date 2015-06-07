@@ -4,22 +4,21 @@
     <div class="act_btns">
         <asp:Button ID="addb" runat="server" style="float: left" Text="Редактирование" OnClick="addb_Click" />
         <div class="controls_group">
-            <asp:Button ID="del_btn" runat="server" Text="Удалить" OnClick="del_btn_Click" />
             <asp:TextBox ID="del_tb" runat="server" />
+            <asp:Button ID="del_btn" runat="server" Text="Удалить" OnClick="del_btn_Click" />
         </div>
         <div class="controls_group">
-            <asp:Button ID="sortby_btn" runat="server" Text="Сортировать" OnClick="sortby_btn_Click" />
             <asp:DropDownList ID="sortby_ddl" runat="server">
                 <asp:ListItem>#</asp:ListItem>
                 <asp:ListItem>Название</asp:ListItem>
                 <asp:ListItem>Город</asp:ListItem>
                 <asp:ListItem>Дата создания</asp:ListItem>
             </asp:DropDownList>
+            <asp:Button ID="sortby_btn" runat="server" Text="Сортировать" OnClick="sortby_btn_Click" />
         </div>
     </div>
-    <asp:Panel ID="Panel1" runat="server" 
-        CssClass="add_panel"
-        Visible="False" Wrap="False">
+    <asp:Panel ID="Panel2" runat="server" CssClass="popup_box" Visible="False" Wrap="False">
+    <asp:Panel ID="Panel1" runat="server" CssClass="add_panel" Visible="False" Wrap="False">
         <table>
             <tr>
                 <td>Название</td>
@@ -51,23 +50,24 @@
             </tr>
             <tr>
                 <td colspan = "2">
-                    <asp:Button ID="addbut" runat="server" style="float: left" Text="Добавить" OnClick="addbut_Click"/>
+                    <asp:Button ID="addbut" runat="server" CssClass="row_item" Text="Добавить" OnClick="addbut_Click"/>
                     <div class="controls_group">
+                        <asp:TextBox ID="upd_tb" runat="server" />
                         <asp:Button ID="upd_btn" runat="server" Text="Обновить" OnClick="upd_btn_Click" />
-                        <asp:TextBox ID="upd_tb" runat="server"></asp:TextBox>
                     </div>
-                    <asp:Button ID="cancelbut" runat="server" CausesValidation="False" 
-                        Text="Отмена" 
+                    <asp:Button ID="cancelbut" CssClass="row_item" runat="server" CausesValidation="False" 
+                        Text="Скрыть" 
                         OnClick="cancelbut_Click" />
                 </td>
             </tr>
         </table>
     </asp:Panel>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="КодКоллектива" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical">
+    </asp:Panel>
+    <asp:GridView ID="GridView1" runat="server" CssClass="mygrid" AutoGenerateColumns="False" BackColor="White" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="КодКоллектива" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="КодКоллектива" HeaderText="#" InsertVisible="False" ReadOnly="True" SortExpression="КодКоллектива" />
-            <asp:BoundField DataField="Название" HeaderText="Название" SortExpression="Название" />
+            <asp:BoundField DataField="Название" ItemStyle-Font-Bold="True" HeaderText="Название" SortExpression="Название" />
             <asp:BoundField DataField="Город" HeaderText="Город" SortExpression="Город" />
             <asp:BoundField DataField="ДатаСоздания" dataformatstring="{0:MM.dd.yyyy}" HeaderText="Дата cоздания" SortExpression="ДатаСоздания" />
         </Columns>

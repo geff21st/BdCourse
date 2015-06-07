@@ -1417,7 +1417,7 @@ table {
   background-color: transparent;
   line-height: 2.428571;
   text-align: center;
-  border-bottom: 2px solid rgba(194, 194, 194, 0.6) !important;
+  /*border-bottom: 2px solid rgba(194, 194, 194, 0.6) !important;*/
   border-radius: 4px;
 }
 

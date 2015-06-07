@@ -22,15 +22,6 @@ namespace BDCourceForWeb {
         protected global::System.Web.UI.WebControls.Button addb;
         
         /// <summary>
-        /// del_btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button del_btn;
-        
-        /// <summary>
         /// del_tb control.
         /// </summary>
         /// <remarks>
@@ -40,13 +31,13 @@ namespace BDCourceForWeb {
         protected global::System.Web.UI.WebControls.TextBox del_tb;
         
         /// <summary>
-        /// sortby_btn control.
+        /// del_btn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button sortby_btn;
+        protected global::System.Web.UI.WebControls.Button del_btn;
         
         /// <summary>
         /// sortby_ddl control.
@@ -58,6 +49,15 @@ namespace BDCourceForWeb {
         protected global::System.Web.UI.WebControls.DropDownList sortby_ddl;
         
         /// <summary>
+        /// sortby_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button sortby_btn;
+        
+        /// <summary>
         /// future_btn control.
         /// </summary>
         /// <remarks>
@@ -65,6 +65,15 @@ namespace BDCourceForWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button future_btn;
+        
+        /// <summary>
+        /// Panel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel2;
         
         /// <summary>
         /// Panel1 control.
@@ -157,15 +166,6 @@ namespace BDCourceForWeb {
         protected global::System.Web.UI.WebControls.Button addbut;
         
         /// <summary>
-        /// upd_btn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button upd_btn;
-        
-        /// <summary>
         /// upd_tb control.
         /// </summary>
         /// <remarks>
@@ -173,6 +173,15 @@ namespace BDCourceForWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox upd_tb;
+        
+        /// <summary>
+        /// upd_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button upd_btn;
         
         /// <summary>
         /// cancelbut control.

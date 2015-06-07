@@ -29,7 +29,7 @@ namespace BDCourceForWeb
         protected void addb_Click(object sender, EventArgs e)
         {
             ClearFields();
-            Panel1.Visible = true;
+            PopupVisible(true);
         }
 
         protected void del_btn_Click(object sender, EventArgs e)
@@ -61,7 +61,7 @@ namespace BDCourceForWeb
                         done_ddl.SelectedIndex
                     );
                 SqlDataSource1.Insert();
-                Panel1.Visible = false;
+                PopupVisible(false);
 
                 ClearFields();
                 GridView1.DataBind();
@@ -86,7 +86,7 @@ namespace BDCourceForWeb
                 SqlDataSource1.Update();
 
                 ClearFields();
-                Panel1.Visible = false;
+                PopupVisible(false);
             }
             catch (Exception) { }
         }
@@ -112,7 +112,13 @@ namespace BDCourceForWeb
 
         protected void cancelbut_Click(object sender, EventArgs e)
         {
-            Panel1.Visible = false;
+            PopupVisible(false);
+        }
+
+        void PopupVisible(bool k)
+        {
+            Panel2.Visible = k;
+            Panel1.Visible = k;
         }
 
         protected void sortby_btn_Click(object sender, EventArgs e)
